@@ -25,7 +25,7 @@ jobs:
 
     - name: Build the Docker image
       run: |
-        docker build . --file Dockerfile --tag deepwzh/secret-syncer-operator:${{ steps.extract_tag.outputs.tag_name }}
+        docker build . --file Dockerfile --tag deepwzh/secret-sync-operator:${{ steps.extract_tag.outputs.tag_name }}
 
     - name: Log in to Docker Hub
       if: github.event_name == 'push'
@@ -34,4 +34,4 @@ jobs:
     - name: Push the Docker image
       if: github.event_name == 'push'
       run: |
-        docker push deepwzh/secret-syncer-operator:${{ steps.extract_tag.outputs.tag_name }}
+        docker push deepwzh/secret-sync-operator:${{ steps.extract_tag.outputs.tag_name }}
